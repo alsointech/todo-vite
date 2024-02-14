@@ -1,4 +1,4 @@
-![todo vite](https://app.screencast.com/CPe1inFhmUcJp)
+![todo vite](https://imgur.com/a/7nVDpxA)
 
 # what I did
 - handle array component state
