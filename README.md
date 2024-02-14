@@ -1,4 +1,4 @@
-![todo vite](https://imgur.com/a/7nVDpxA)
+![todo-vite](https://github.com/afrancocedeno/todo-vite/assets/69823997/68522e32-b22a-450e-89cf-72c6a7982179)
 
 # what I did
 - handle array component state
@@ -25,3 +25,4 @@ git add .
 
 git commit -m "file create | <your feature description>"
 ```
+
