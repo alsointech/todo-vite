@@ -9,6 +9,7 @@
 # how to run
 ```bash
 git clone https://github.com/afrancocedeno/todo-vite.git
+cd todo-vite
 npm install
 npm run dev
 ```
