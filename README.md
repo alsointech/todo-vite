@@ -19,19 +19,33 @@ npm run dev # run the project!
 ```
 
 # how to contribute
+
+1. fork the project
+
+2. follow these steps:
 ```bash
-# get this repo to your machine
-git clone https://github.com/afrancocedeno/todo-vite.git
+# get your forked repo to your machine
+git clone https://github.com/<your_github_user>/todo-vite.git
 
-git pull # pull the latest version of the remote repo
+git pull # make sure you get the latest version of the remote repo
 
-git checkout <feature/your_branch_feature> # set the new branch
+git checkout -b <feature/your_branch_feature> # set the new branch
 
-git add .
+git add . # append your changes
 
-git commit -m "file create | <your feature description>"
+git commit -m "file create | <your feature description>" # describe your changes
 
 git push -u origin <feature/your_branch_feature>
 
-# finally create a new github.com Pull Request (PR)
 ```
+# finally open a new github.com Pull Request (PR) [here](https://github.com/afrancocedeno/todo-vite)
+
+## Contributors
+* Alejandro Franco Cedeño: <afrancocedeno@gmail.com> | 
+[Github](https://github.com/afrancocedeno) | 
+[Twitter](twitter.com/afrancocedeno) |
+[Linkedin](linkedin.com/in/afrancocedeno/)
+
+## License & Copyright
+
+© Alejandro Franco Cedeño, SWE.

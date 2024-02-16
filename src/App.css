@@ -41,7 +41,11 @@
   color: #888;
 }
 
-.task-box {
+.input-task-box {
+
+}
+
+.pending-task-box {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -55,10 +59,27 @@
   margin-bottom: 0.5rem;
 }
 
+.completed-task-box {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  text-decoration: line-through;
+  color: #888;
+  background-color: #1a1a1a;
+  cursor:text;
+  transition: border-color 0.25s;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 .pending-tasks-box {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .completed-tasks-box {
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
