@@ -23,8 +23,9 @@ npm run dev # run the project!
 # get this repo to your machine
 git clone https://github.com/afrancocedeno/todo-vite.git
 
-# set the new branch to your feature changes
-git checkout <feature/your_branch_feature>
+git pull # pull the latest version of the remote repo
+
+git checkout <feature/your_branch_feature> # set the new branch
 
 git add .
 
