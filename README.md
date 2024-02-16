@@ -5,13 +5,17 @@
 - write dinamyc css code
 - I will implement local storage
 - use icons
+- 
 
 # how to run
 ```bash
-git clone https://github.com/afrancocedeno/todo-vite.git
-cd todo-vite
-npm install
-npm run dev
+git clone https://github.com/afrancocedeno/todo-vite.git # is git installed?
+
+cd todo-vite # acces the new working directtory
+
+npm install # is npm installed ?
+
+npm run dev # run the project!
 ```
 
 # how to contribute
@@ -19,11 +23,14 @@ npm run dev
 # get this repo to your machine
 git clone https://github.com/afrancocedeno/todo-vite.git
 
-# set the development branch to dev
-git checkout <feature/your_feature>
+# set the new branch to your feature changes
+git checkout <feature/your_branch_feature>
 
 git add .
 
 git commit -m "file create | <your feature description>"
-```
 
+git push -u origin <feature/your_branch_feature>
+
+# finally create a new github.com Pull Request (PR)
+```
