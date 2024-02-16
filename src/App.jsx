@@ -40,12 +40,12 @@ function App() {
           create
         </button>
       </div >
-      <div>
+      <div className='pending-tasks-box'>
         {tasks.map((task) => (
-          <p>{task.title}</p>
+          <div className='task-box'>{task.title}</div>
         ))}
       </div>
-      <div>completed tasks</div>
+      <div className='completed-tasks-box'>completed tasks</div>
       <p>
         Check <code> ipsum.dolor.sit </code>loremamet consectetur adipisicing elit.
       </p>
