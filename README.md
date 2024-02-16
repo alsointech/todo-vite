@@ -1,4 +1,4 @@
-![todo-vite](https://github.com/afrancocedeno/todo-vite/assets/69823997/68522e32-b22a-450e-89cf-72c6a7982179)
+![todo-vite](https://github.com/afrancocedeno/todo-vite/assets/69823997/993b479d-23e4-4dc6-b34e-4f38c8feade8)
 
 # what I did
 - handle array component state
