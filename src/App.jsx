@@ -11,7 +11,7 @@ let foo = [
     {
         id: 2,
         title: 'visit Grandma',
-        completed: false
+        completed: true
     }
 ]
 
@@ -56,10 +56,15 @@ function App() {
             <div className='completed-tasks-box'>
                 <h2>completed tasks</h2>
                 {tasks.map((task) => (
-                    <div className='completed-task-box'>{task.title}</div>
+                    <div className='completed-task-box'>
+                        <input type="checkbox"
+                            checked={task.completed} />
+                        {task.title}
+                        <button className='destroy'>X</button>
+                    </div>
                 ))}
             </div>
-            
+
             <p>
                 Check <code> ipsum.dolor.sit </code>loremamet consectetur adipisicing elit.
             </p>
