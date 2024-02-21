@@ -70,9 +70,11 @@ function App() {
                 <h2>Pending tasks</h2>
                 {tasks.map((task) => (
                     <div className='task-box pending'>
-                        <input type="checkbox"
-                            checked={task.completed} />
-                        {task.title}
+                        <div>
+                            <input type="checkbox"
+                                checked={task.completed} />
+                            {task.title}
+                        </div>
                         <button className='destroy'></button>
                     </div>
                 ))}
@@ -81,10 +83,13 @@ function App() {
             <div className='completed-tasks-box'>
                 <h2>Completed tasks</h2>
                 {tasks.map((task) => (
-                    <div className='task-box completed'>
-                        <input type="checkbox"
-                            checked={task.completed} />
-                        {task.title}
+                    <div className='task-box completed '>
+                        <div>
+
+                            <input type="checkbox"
+                                checked={task.completed} />
+                            {task.title}
+                        </div>
                         <button className='destroy'></button>
                     </div>
                 ))}
