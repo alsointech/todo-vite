@@ -36,6 +36,10 @@ h1 {
   line-height: 1.1;
 }
 
+h2 {
+  text-align: left
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -82,4 +86,12 @@ input {
   cursor:text;
   transition: border-color 0.25s;
   margin-right: 1rem;
+}
+
+button.destroy {
+  padding: 0.3em 0.6em; 
+}
+
+button.destroy:hover {
+  color: #ff00ae;
 }

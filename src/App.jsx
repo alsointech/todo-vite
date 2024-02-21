@@ -6,16 +6,33 @@ let foo = [
     {
         id: 1,
         title: 'go to swim',
-        completed: false
+        completed: true
     },
     {
         id: 2,
         title: 'visit Grandma',
-        completed: true
+        completed: false
     }
 ]
 
 let bar = ''
+
+const Tasks = (task) => {
+    if (item.completed) {
+        return <div>helloxx</div>
+    }
+}
+
+/* return (
+    <div className={task.completed ? 'completed' : 'pending'}>
+        <input type="checkbox"
+            checked={task.completed} />
+        {task.title}
+        <button className='destroy'></button>
+    </div>
+) */
+
+
 
 function App() {
 
@@ -30,37 +47,45 @@ function App() {
                 </a>
             </div>
 
-            <h1>todo list</h1>
+            <h1>Todo List</h1>
 
+            <div>
+                {/* {foo.map(task)} */}
+            </div>
             <div className='input-task-box'>
                 <input
                     value={bar}
                     type='text'
-                    placeholder='what is pending ?'
+                    placeholder='What is pending ?'
                 />
                 <button
                     onClick={() => (setTasks((task) => (
                         [...task, { title: 'cualquier valor de tarea' }]
                     )))}>
-                    create
+                    Create
                 </button>
             </div >
 
             <div className='pending-tasks-box'>
-                <h2>pending tasks</h2>
+                <h2>Pending tasks</h2>
                 {tasks.map((task) => (
-                    <div className='pending-task-box'>{task.title}</div>
+                    <div className='task-box pending'>
+                        <input type="checkbox"
+                            checked={task.completed} />
+                        {task.title}
+                        <button className='destroy'></button>
+                    </div>
                 ))}
             </div>
 
             <div className='completed-tasks-box'>
-                <h2>completed tasks</h2>
+                <h2>Completed tasks</h2>
                 {tasks.map((task) => (
-                    <div className='completed-task-box'>
+                    <div className='task-box completed'>
                         <input type="checkbox"
                             checked={task.completed} />
                         {task.title}
-                        <button className='destroy'>X</button>
+                        <button className='destroy'></button>
                     </div>
                 ))}
             </div>
