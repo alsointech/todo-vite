@@ -43,8 +43,7 @@
 
 /* .input-task-box {
 
-}
- */
+}*/
 
 .task-box {
   border-radius: 8px;
@@ -71,6 +70,10 @@
   text-decoration: line-through;
   color: #888;
 }
+
+/* input .task-box.completed {
+
+} */
 
 .pending-tasks-box {
   margin-top: 2rem;

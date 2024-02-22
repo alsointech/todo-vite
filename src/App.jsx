@@ -2,43 +2,25 @@ import { useState } from 'react'
 import clockIcon from './assets/clock.svg'
 import './App.css'
 
-let foo = [
-    {
-        id: 1,
-        title: 'go to swim',
-        completed: true
-    },
-    {
-        id: 2,
-        title: 'visit Grandma',
-        completed: false
-    },
-    {
-        id: 3,
-        title: 'soak the garden',
-        completed: true
-    },
-    {
-        id: 4,
-        title: 'pet the cats',
-        completed: false
-    },
-    {
-        id: 4,
-        title: 'finish react dinamyc task rendering',
-        completed: true
-    },
-]
 
-let bar = ''
 
-const Tasks = ({ tasks, completed }) => {
+let title = ''
+let iterator = 0
+
+const Tasks = ({ tasks, keyWord, completedChange }) => {
+
+
     return <>
         {tasks.map((task, index) => (
-            task.completed === completed && <div key={index} className={`task-box ${completed ? 'completed' : ''}`}>
+            task.completed === keyWord && <div key={index} className={`task-box ${keyWord ? 'completed' : ''}`}>
                 <div>
-                    <input type="checkbox"
-                        checked={completed} />
+                    <input
+                        type="checkbox"
+                        checked={keyWord}
+                        // checked=completed
+                        onChange={() => completedChange(task.id)}
+                    // disabled={completed ? true : ''}
+                    />
                     {task.title}
                 </div>
                 <button className='destroy'></button>
@@ -50,7 +32,22 @@ const Tasks = ({ tasks, completed }) => {
 function App() {
 
     // handle task object state 
-    const [tasks, setTasks] = useState(foo)
+    const [tasks, setTasks] = useState([])
+
+    const [title, setTitle] = useState('')
+
+    const handleInputValue = (event) => {
+        event.preventDefault()
+        setTitle('')
+    }
+
+
+    const handleCompletedChange = (taskId) => {
+        setTasks([
+            ...tasks,
+            tasks.map(task => task.id === taskId ? task.completed = !task.completed : task)
+        ])
+    };
 
     return (
         <>
@@ -62,24 +59,34 @@ function App() {
 
             <h1>Todo List</h1>
 
-            <div className='input-task-box'>
+            <form className='' onSubmit={handleInputValue}>
                 <input
-                    value={bar}
+                    value={title}
                     type='text'
-                    placeholder='What is pending ?'
+                    placeholder="What is pending ?"
+                    onChange={e => setTitle(e.target.value)}
                 />
                 <button
-                    onClick={() => (setTasks((task) => (
-                        [...task, { title: 'cualquier valor de tarea' }]
-                    )))}>
+                    type='submit'
+                    onSubmit={(e) => e.target.reset()}
+                    onClick={() => {
+                        setTasks([
+                            ...tasks,
+                            {
+                                id: iterator++,
+                                title: title,
+                                completed: false
+                            }]
+                        )
+                    }}>
                     Create
                 </button>
-            </div >
+            </form >
 
             <div className='pending-tasks-box'>
                 <h2>Pending tasks</h2>
 
-                <Tasks tasks={foo} completed={false}></Tasks>
+                <Tasks tasks={tasks} keyWord={false} completedChange={handleCompletedChange}></Tasks>
 
             </div>
 
@@ -87,7 +94,7 @@ function App() {
 
                 <h2>Completed tasks</h2>
 
-                <Tasks tasks={foo} completed={true}></Tasks>
+                <Tasks tasks={tasks} keyWord={true} completedChange={handleCompletedChange}></Tasks>
 
             </div>
 
