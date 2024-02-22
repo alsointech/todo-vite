@@ -61,13 +61,13 @@ function App() {
 
     return (
         <>
-            <div>
+            <nav>
                 <a href="/" target="_blank">
                     <img src={clockIcon} className="logo" alt="clock logo" />
                 </a>
-            </div>
+                <h1>Mis tareas</h1>
+            </nav>
 
-            <h1>Mis tareas</h1>
 
             <form className='' onSubmit={handleInputValue}>
                 <input
@@ -95,7 +95,7 @@ function App() {
             </form >
 
             <div className='pending-tasks-box'>
-                <h2>Tareas pendientes</h2>
+                <h2>Pendientes</h2>
 
                 <Tasks tasks={tasks} keyWord={false} completedChange={handleCompletedChange}></Tasks>
 
@@ -103,15 +103,22 @@ function App() {
 
             <div className='completed-tasks-box'>
 
-                <h2>Tareas completadas</h2>
+                <h2>Completadas</h2>
 
                 <Tasks tasks={tasks} keyWord={true} completedChange={handleCompletedChange}></Tasks>
 
             </div>
 
-            <p>Check <code> ipsum.dolor.sit </code>loremamet consectetur adipisicing elit.</p>
-
-            <p className="read-the-docs">Tambien Latino.</p>
+            <footer>
+            <p>Check the &#32;
+                <code>
+                    <a href="http://github.com/afrancocedeno/todo-vite">
+                        repository
+                    </a>
+                </code>
+                &#32;and give me a star. ⭐</p>
+                <p className="read-the-docs">© 2024 TambienLatino, Inc.</p>
+            </footer>
         </>
     )
 }
