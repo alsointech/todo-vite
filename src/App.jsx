@@ -8,7 +8,7 @@ const Tasks = ({ tasks, keyWord, completedChange }) => {
 
 
     return <>
-        {tasks.map((task, index) => (
+        {tasks.map((task, index) => ( 
             task.completed === keyWord && <div key={index} className={`task-box ${keyWord ? 'completed' : ''}`}>
                 <div>
                     <input
@@ -57,7 +57,7 @@ function App() {
                 </a>
             </div>
 
-            <h1>Mi lista de tare</h1>
+            <h1>Mis pendientes</h1>
 
             <form className='' onSubmit={handleInputValue}>
                 <input
