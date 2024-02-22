@@ -97,7 +97,7 @@ function App() {
             <div className='pending-tasks-box'>
                 <h2>Pendientes</h2>
 
-                <Tasks tasks={tasks} keyWord={false} completedChange={handleCompletedChange}></Tasks>
+                <Tasks tasks={tasks} completed={false} completedChange={handleCompletedChange}></Tasks>
 
             </div>
 
@@ -105,7 +105,7 @@ function App() {
 
                 <h2>Completadas</h2>
 
-                <Tasks tasks={tasks} keyWord={true} completedChange={handleCompletedChange}></Tasks>
+                <Tasks tasks={tasks} completed={true} completedChange={handleCompletedChange}></Tasks>
 
             </div>
 

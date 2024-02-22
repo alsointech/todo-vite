@@ -88,6 +88,7 @@ input {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+  color: inherit;
   background-color: #1a1a1a;
   cursor:text;
   transition: border-color 0.25s;
