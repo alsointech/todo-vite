@@ -4,16 +4,20 @@ import './App.css'
 
 let iterator = 0
 
-const Tasks = ({ tasks, keyWord, completedChange }) => {
+const Tasks = ({
+    tasks,
+    completed,
+    completedChange
+}) => {
 
 
     return <>
-        {tasks.map((task, index) => ( 
-            task.completed === keyWord && <div key={index} className={`task-box ${keyWord ? 'completed' : ''}`}>
+        {tasks.map((task, index) => (
+            task.completed === completed && <div key={index} className={`task-box ${completed ? 'completed' : ''}`}>
                 <div>
                     <input
                         type="checkbox"
-                        checked={keyWord}
+                        checked={completed}
                         // checked=completed
                         onChange={() => completedChange(task.id)}
                     // disabled={completed ? true : ''}
@@ -21,8 +25,7 @@ const Tasks = ({ tasks, keyWord, completedChange }) => {
                     {task.title}
                 </div>
                 <button
-                    className='destroy'
-
+                    className={`${task.visible ? 'destroy' : 'recover'}`}
                 />
             </div>
         ))}
@@ -49,6 +52,13 @@ function App() {
         ])
     };
 
+    const handleDeletedChange = (taskId) => {
+        setTasks([
+            ...tasks,
+            tasks.map(task => task.id === taskId ? task.visible = !task.visible : task)
+        ])
+    };
+
     return (
         <>
             <div>
@@ -57,13 +67,13 @@ function App() {
                 </a>
             </div>
 
-            <h1>Mis pendientes</h1>
+            <h1>Mis tareas</h1>
 
             <form className='' onSubmit={handleInputValue}>
                 <input
                     value={title}
                     type='text'
-                    placeholder="What is pending ?"
+                    placeholder="Que tengo para hoy?"
                     onChange={e => setTitle(e.target.value)}
                 />
                 <button
@@ -75,11 +85,12 @@ function App() {
                             {
                                 id: iterator++,
                                 title: title,
-                                completed: false
+                                completed: false,
+                                visible: true
                             }]
                         )
                     }}>
-                    Create
+                    Crear
                 </button>
             </form >
 
@@ -100,7 +111,7 @@ function App() {
 
             <p>Check <code> ipsum.dolor.sit </code>loremamet consectetur adipisicing elit.</p>
 
-            <p className="read-the-docs">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="read-the-docs">Tambien Latino.</p>
         </>
     )
 }

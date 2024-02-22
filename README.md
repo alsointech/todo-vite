@@ -15,6 +15,11 @@
 * [ ] use icons
 * [ ] login
 * [ ] create a premium to undelete tasks
+* [ ] make it google task style
+
+# Mis tareas
+[Linkedin](https://afrancocedeno.github.io/todo-vite/)
+
 
 # how to run
 ```bash
