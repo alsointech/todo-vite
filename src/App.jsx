@@ -2,9 +2,6 @@ import { useState } from 'react'
 import clockIcon from './assets/clock.svg'
 import './App.css'
 
-
-
-let title = ''
 let iterator = 0
 
 const Tasks = ({ tasks, keyWord, completedChange }) => {
@@ -23,7 +20,10 @@ const Tasks = ({ tasks, keyWord, completedChange }) => {
                     />
                     {task.title}
                 </div>
-                <button className='destroy'></button>
+                <button
+                    className='destroy'
+
+                />
             </div>
         ))}
     </>
@@ -57,7 +57,7 @@ function App() {
                 </a>
             </div>
 
-            <h1>Todo List</h1>
+            <h1>Mi lista de tare</h1>
 
             <form className='' onSubmit={handleInputValue}>
                 <input
@@ -84,7 +84,7 @@ function App() {
             </form >
 
             <div className='pending-tasks-box'>
-                <h2>Pending tasks</h2>
+                <h2>Tareas pendientes</h2>
 
                 <Tasks tasks={tasks} keyWord={false} completedChange={handleCompletedChange}></Tasks>
 
@@ -92,7 +92,7 @@ function App() {
 
             <div className='completed-tasks-box'>
 
-                <h2>Completed tasks</h2>
+                <h2>Tareas completadas</h2>
 
                 <Tasks tasks={tasks} keyWord={true} completedChange={handleCompletedChange}></Tasks>
 

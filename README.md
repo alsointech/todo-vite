@@ -5,7 +5,8 @@
 * [x] use js to manipulate tasks and states
 * [ ] migrate project to typescript
 * [x] create task
-* [x] complete task
+* [x] edit task
+* [ ] complete task
 * [x] undo complete task
 * [ ] delete task
 * [x] handle array component state
