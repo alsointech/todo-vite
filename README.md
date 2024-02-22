@@ -1,15 +1,16 @@
 ![todo-vite](https://github.com/afrancocedeno/todo-vite/assets/69823997/993b479d-23e4-4dc6-b34e-4f38c8feade8)
 
 # what I did
-* [ ] create static structure of ui
-* [ ] use js to manipulate tasks and states
+* [x] create static structure of ui
+* [x] use js to manipulate tasks and states
 * [ ] migrate project to typescript
-* [ ] create task
-* [ ] complete task
+* [x] create task
+* [x] complete task
+* [x] undo complete task
 * [ ] delete task
-* [ ] handle array component state
-* [ ] write dinamyc css code
-* [ ] I will implement local storage
+* [x] handle array component state
+* [x] write dinamyc css code
+* [ ] implement local storage
 * [ ] use icons
 * [ ] login
 * [ ] create a premium to undelete tasks
