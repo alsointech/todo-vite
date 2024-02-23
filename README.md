@@ -2,9 +2,9 @@
 
 # Mis tareas
 A simple todo app created with [vite](https://vitejs.dev/), to handle my tasks
-[Linkedin](https://afrancocedeno.github.io/todo-vite/)
+[nistareas.io](https://afrancocedeno.github.io/todo-vite/)
 
-# What I did
+## What I did
 * [x] ~~create static structure of ui~~
 * [x] ~~use js to manipulate tasks and states~~
 * [ ] migrate project to typescript
@@ -21,7 +21,7 @@ A simple todo app created with [vite](https://vitejs.dev/), to handle my tasks
 * [ ] create a premium to undelete tasks
 * [ ] make it google task style
 
-# How to run
+## How to run
 ```bash
 git clone https://github.com/afrancocedeno/todo-vite.git # is git installed?
 
@@ -32,7 +32,7 @@ npm install # is npm installed ?
 npm run dev # run the project!
 ```
 
-# How to contribute
+## How to contribute
 
 1. fork the project
 
@@ -52,7 +52,7 @@ git commit -m "file create | <your feature description>" # describe your changes
 git push -u origin <feature/your_branch_feature>
 
 ```
-# Finally open a new github.com Pull Request (PR) [here](https://github.com/afrancocedeno/todo-vite)
+3. Finally open a new github.com Pull Request (PR) [here](https://github.com/afrancocedeno/todo-vite)
 
 ## Contributors
 * Alejandro Franco Cedeño: <afrancocedeno@gmail.com> | 
