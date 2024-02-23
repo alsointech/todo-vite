@@ -19,7 +19,7 @@ const Tasks = ({
     completed visible
     completed invisible */
 
-    return <>
+    return <div className='foo'>
         {tasks.map((task, index) => {
             // pending
             if (!completed && !task.completed && !deleted && task.visible) {
@@ -78,7 +78,7 @@ const Tasks = ({
 
 
         )}
-    </>
+    </div>
 }
 
 function App() {
@@ -114,18 +114,17 @@ function App() {
         })))
     };
 
-    return (
-        <>
-            <nav>
-                <a href="/" target="_blank">
-                    <img src={clockIcon} className="logo" alt="clock logo" />
-                </a>
-                <h1>Mis tareas</h1>
-            </nav>
-            <main>
-                <article>
-                    trash
-                </article>
+    return (<>
+        <header>
+            <h1>Mis tareas</h1>
+        </header>
+        <nav>
+            <a href="/" target="_blank">
+                <img src={clockIcon} className="logo" alt="clock logo" />
+            </a>
+        </nav>
+        <main>
+            <article>
                 <form className='' onSubmit={handleInputValue}>
                     <input
                         value={title}
@@ -189,19 +188,22 @@ function App() {
                         deletedChange={handleDeletedChange}
                     />
                 </div>
-
-            </main >
-            <footer>
-                <p>Check the &#32;
-                    <code>
-                        <a href="http://github.com/afrancocedeno/todo-vite">
-                            repository
-                        </a>
-                    </code>
-                    &#32;and give me a star. ⭐</p>
-                <p className="read-the-docs">© 2024 TambienLatino, Inc.</p>
-            </footer>
-        </>
+            </article >
+            <aside>
+                trash
+            </aside>
+        </main >
+        <footer>
+            <p>Check the &#32;
+                <code>
+                    <a href="http://github.com/afrancocedeno/todo-vite">
+                        repository
+                    </a>
+                </code>
+                &#32;and give me a star. ⭐</p>
+            <p className="read-the-docs">© 2024 TambienLatino, Inc.</p>
+        </footer>
+    </>
     )
 }
 
