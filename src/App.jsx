@@ -7,28 +7,77 @@ let iterator = 0
 const Tasks = ({
     tasks,
     completed,
-    completedChange
+    completedChange,
+    deleted,
+    deletedChange
 }) => {
 
+    /* states are:
+    uncompleted visible
+    uncompleted invisible
+
+    completed visible
+    completed invisible */
 
     return <>
-        {tasks.map((task, index) => (
-            task.completed === completed && <div key={index} className={`task-box ${completed ? 'completed' : ''}`}>
-                <div>
-                    <input
-                        type="checkbox"
-                        checked={completed}
-                        // checked=completed
-                        onChange={() => completedChange(task.id)}
-                    // disabled={completed ? true : ''}
+        {tasks.map((task, index) => {
+            // pending
+            if (!completed && !task.completed && !deleted && task.visible) {
+                // completed
+                return <div key={index} className={`task-box ${completed ? 'completed' : ''}`}>
+                    <div>
+                        <input
+                            type="checkbox"
+                            checked={completed}
+                            onChange={() => completedChange(task.id)}
+                            disabled={deleted ? true : false}
+                        />
+                        {task.title}
+                    </div>
+                    <button
+                        className={`${task.visible ? 'destroy' : 'recover'}`}
+                        onClick={() => deletedChange(task.id)}
                     />
-                    {task.title}
                 </div>
-                <button
-                    className={`${task.visible ? 'destroy' : 'recover'}`}
-                />
-            </div>
-        ))}
+            } else if (completed && task.completed && !deleted && task.visible) {
+                // deleted
+                return <div key={index} className={`task-box ${completed ? 'completed' : ''}`}>
+                    <div>
+                        <input
+                            type="checkbox"
+                            checked={completed}
+                            onChange={() => completedChange(task.id)}
+                            disabled={deleted ? true : false}
+                        />
+                        {task.title}
+                    </div>
+                    <button
+                        className={`${task.visible ? 'destroy' : 'recover'}`}
+                        onClick={() => deletedChange(task.id)}
+                    />
+                </div>
+            } else if (deleted && !task.visible && (task.completed || !task.completed)) {
+                return <div key={index} className={`task-box ${completed ? 'completed' : ''}`}>
+                    <div>
+                        <input
+                            type="checkbox"
+                            checked={completed}
+                            onChange={() => completedChange(task.id)}
+                            disabled={deleted ? true : false}
+                        />
+                        {task.title}
+                    </div>
+                    <button
+                        className={`${task.visible ? 'destroy' : 'recover'}`}
+                        onClick={() => deletedChange(task.id)}
+                    />
+                </div>
+            }
+
+        }
+
+
+        )}
     </>
 }
 
@@ -46,17 +95,23 @@ function App() {
 
 
     const handleCompletedChange = (taskId) => {
-        setTasks([
-            ...tasks,
-            tasks.map(task => task.id === taskId ? task.completed = !task.completed : task)
-        ])
+        setTasks(tasks.map((task => {
+            if (task.id === taskId)
+                return {
+                    ...task,
+                    completed: !task.completed
+                }
+        })))
     };
 
     const handleDeletedChange = (taskId) => {
-        setTasks([
-            ...tasks,
-            tasks.map(task => task.id === taskId ? task.visible = !task.visible : task)
-        ])
+        setTasks(tasks.map((task => {
+            if (task.id === taskId)
+                return {
+                    ...task,
+                    visible: !task.visible
+                }
+        })))
     };
 
     return (
@@ -67,56 +122,83 @@ function App() {
                 </a>
                 <h1>Mis tareas</h1>
             </nav>
+            <main>
+                <article>
+                    trash
+                </article>
+                <form className='' onSubmit={handleInputValue}>
+                    <input
+                        value={title}
+                        type='text'
+                        placeholder="Que tengo para hoy?"
+                        onChange={e => setTitle(e.target.value)}
+                    />
+                    <button
+                        type='submit'
+                        onSubmit={(e) => e.target.reset()}
+                        onClick={() => {
+                            setTasks([
+                                ...tasks,
+                                {
+                                    id: iterator++,
+                                    title: title,
+                                    completed: false,
+                                    visible: true
+                                }]
+                            )
+                        }}>
+                        Crear
+                    </button>
+                </form >
+                <div className='pending-tasks-box'>
+                    <h2>Pendientes</h2>
 
+                    <Tasks
+                        tasks={tasks}
+                        completed={false}
+                        completedChange={handleCompletedChange}
+                        deleted={false}
+                        deletedChange={handleDeletedChange}
+                    />
 
-            <form className='' onSubmit={handleInputValue}>
-                <input
-                    value={title}
-                    type='text'
-                    placeholder="Que tengo para hoy?"
-                    onChange={e => setTitle(e.target.value)}
-                />
-                <button
-                    type='submit'
-                    onSubmit={(e) => e.target.reset()}
-                    onClick={() => {
-                        setTasks([
-                            ...tasks,
-                            {
-                                id: iterator++,
-                                title: title,
-                                completed: false,
-                                visible: true
-                            }]
-                        )
-                    }}>
-                    Crear
-                </button>
-            </form >
+                </div>
 
-            <div className='pending-tasks-box'>
-                <h2>Pendientes</h2>
+                <div className='completed-tasks-box'>
 
-                <Tasks tasks={tasks} completed={false} completedChange={handleCompletedChange}></Tasks>
+                    <h2>Completadas</h2>
 
-            </div>
+                    <Tasks
+                        tasks={tasks}
+                        completed={true}
+                        completedChange={handleCompletedChange}
+                        deleted={false}
+                        deletedChange={handleDeletedChange}
+                    />
 
-            <div className='completed-tasks-box'>
+                </div>
 
-                <h2>Completadas</h2>
+                <div className='completed-tasks-box'>
 
-                <Tasks tasks={tasks} completed={true} completedChange={handleCompletedChange}></Tasks>
+                    <h2>Eliminadas</h2>
 
-            </div>
+                    <Tasks
+                        tasks={tasks}
+                        completed={true}
+                        completedChange={handleCompletedChange}
+                        deleted={true}
+                        deletedChange={handleDeletedChange}
+                    />
+                </div>
 
+            </main >
             <footer>
-            <p>Check the &#32;
-                <code>
-                    <a href="http://github.com/afrancocedeno/todo-vite">
-                        repository
-                    </a>
-                </code>
-                &#32;and give me a star. ⭐</p>
+                <p>Check the &#32;
+                    <code>
+                        <a href="http://github.com/afrancocedeno/todo-vite">
+                            repository
+                        </a>
+                    </code>
+                    &#32;and give me a star. ⭐</p>
                 <p className="read-the-docs">© 2024 TambienLatino, Inc.</p>
             </footer>
         </>

@@ -86,8 +86,13 @@
 }
 
 .destroy::before {
-  content: '×';
-  /* display: block; */
+  content: '🗑';
+  height: 100%;
+  line-height: 1.1;
+}
+
+.recover::before {
+  content: '🛠';
   height: 100%;
   line-height: 1.1;
 }
