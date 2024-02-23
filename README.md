@@ -1,27 +1,27 @@
 ![todo-vite](https://github.com/afrancocedeno/todo-vite/assets/69823997/993b479d-23e4-4dc6-b34e-4f38c8feade8)
 
-# what I did
-* [x] create static structure of ui
-* [x] use js to manipulate tasks and states
+# Mis tareas
+A simple todo app created with [vite](https://vitejs.dev/), to handle my tasks
+[Linkedin](https://afrancocedeno.github.io/todo-vite/)
+
+# What I did
+* [x] ~~create static structure of ui~~
+* [x] ~~use js to manipulate tasks and states~~
 * [ ] migrate project to typescript
-* [x] create task
-* [x] edit task
+* [x] ~~create task~~
+* [x] ~~edit task~~
 * [ ] complete task
-* [x] undo complete task
+* [x] ~~undo complete task~~
 * [ ] delete task
-* [x] handle array component state
-* [x] write dinamyc css code
+* [x] ~~handle array component state~~
+* [x] ~~write dinamyc css code~~
 * [ ] implement local storage
 * [ ] use icons
 * [ ] login
 * [ ] create a premium to undelete tasks
 * [ ] make it google task style
 
-# Mis tareas
-[Linkedin](https://afrancocedeno.github.io/todo-vite/)
-
-
-# how to run
+# How to run
 ```bash
 git clone https://github.com/afrancocedeno/todo-vite.git # is git installed?
 
@@ -32,7 +32,7 @@ npm install # is npm installed ?
 npm run dev # run the project!
 ```
 
-# how to contribute
+# How to contribute
 
 1. fork the project
 
@@ -52,7 +52,7 @@ git commit -m "file create | <your feature description>" # describe your changes
 git push -u origin <feature/your_branch_feature>
 
 ```
-# finally open a new github.com Pull Request (PR) [here](https://github.com/afrancocedeno/todo-vite)
+# Finally open a new github.com Pull Request (PR) [here](https://github.com/afrancocedeno/todo-vite)
 
 ## Contributors
 * Alejandro Franco Cedeño: <afrancocedeno@gmail.com> | 
